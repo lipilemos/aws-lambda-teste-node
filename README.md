@@ -8,6 +8,8 @@ depois de tudo pronto só rodar o comando: ```serverless deploy``` para fazer o 
 
 em anexo do projeto esta a pasta 'TESTES' com a collection da API no POSTMAN
 
+o banco de dados usado para esse teste foi ```MongoDB```
+
 # endpoints:
   ## GET - https://q6z05iv90g.execute-api.us-east-1.amazonaws.com/dev/
   ## GET - https://q6z05iv90g.execute-api.us-east-1.amazonaws.com/dev/funcionarios
