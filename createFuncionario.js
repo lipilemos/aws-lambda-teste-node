@@ -19,7 +19,7 @@ module.exports.handler = async (event, context, callback) => {
     try {
       console.log(event)
       const {name, idade, cargo} = JSON.parse(event.body)
-      const func = await dbConnectAndExecute(mongoString, async () => (Funcionarios.create({name,cargo,idade})));        
+      const func = await dbConnectAndExecute(mongoString, async () => (Funcionarios.create({name,cargo,idade})));          
       return {
         statusCode: 200,
         headers: {
@@ -30,11 +30,9 @@ module.exports.handler = async (event, context, callback) => {
       };
     }
     catch (e) {
-      console.log(e)
-      console.log(event)
       return {
         statusCode: 404,
-        body: JSON.stringify({ erros: ["Funcionario não encontrados"] })
+        body: JSON.stringify({ erros: ["ERRO AO CRIAR FUNCIONARIO"] })
       };
     }
   }

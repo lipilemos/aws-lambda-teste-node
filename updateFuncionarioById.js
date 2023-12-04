@@ -20,7 +20,11 @@ module.exports.handler = async (event, context, callback) => {
     const { id } = event.pathParameters
     try {
         const func = await dbConnectAndExecute(mongoString, async () => (Funcionarios.findById(new mongoose.Types.ObjectId(id)).select()));
-
+        if(!func)
+            return {
+                statusCode: 404,
+                body: JSON.stringify({ erros: ["FUNCIONARIO NAO ENCONTRADO"] })
+        };
         if (name)
             func.name = name
 
@@ -38,9 +42,8 @@ module.exports.handler = async (event, context, callback) => {
         };
     }
     catch (e) {
-        console.log(e)
         return {
-            statusCode: 404,
+            statusCode: 402,
             body: JSON.stringify({ erros: ["ERRO AO ATUALIZAR FUNCIONARIO"] })
         };
     }

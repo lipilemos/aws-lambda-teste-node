@@ -31,13 +31,12 @@ module.exports.handler = async (event, context) => {
             "Content-Type": "application/json",
             'Access-Control-Allow-Origin': '*',
           },
-          body: JSON.stringify(func)
+          body: Json.stringify(func)
         };
       }
       catch (e) {
-        console.log(e)
         return {
-          statusCode: 404,
+          statusCode: 402,
           body: JSON.stringify({ erros: ["ERRO AO BUSCAR FUNCIONARIO"] })
         };
       }
